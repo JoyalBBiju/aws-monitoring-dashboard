@@ -1,6 +1,6 @@
 # Cloud Monitor Dashboard ☁️
 
-A real-time AWS cloud monitoring dashboard built using EC2, CloudWatch, Lambda, API Gateway, and a custom frontend.
+A real-time AWS cloud monitoring dashboard built using Amazon EC2, CloudWatch, Lambda, API Gateway, and a custom frontend.
 
 This project monitors live server metrics and displays them through a responsive dashboard with automatic updates and alert logic.
 
@@ -27,28 +27,29 @@ The project retrieves real metrics from AWS CloudWatch and displays them through
 
 ## Architecture Diagram
 
-![Architecture](pic/architecture-diagram.png)
+![Architecture](pic/Architecture%20Diagram.png)
 
+---
 
 # AWS Services Used
 
-### Amazon EC2
+## Amazon EC2
 
 Hosts the monitored server instance.
 
-### Amazon CloudWatch
+## Amazon CloudWatch
 
 Collects infrastructure metrics.
 
-### CloudWatch Agent
+## CloudWatch Agent
 
 Publishes memory and disk metrics to CloudWatch.
 
-### AWS Lambda
+## AWS Lambda
 
 Fetches CloudWatch metrics and exposes them through an API.
 
-### API Gateway
+## API Gateway
 
 Provides secure API access to the frontend dashboard.
 
@@ -73,37 +74,57 @@ Provides secure API access to the frontend dashboard.
 
 ## Healthy State
 
-![Healthy Dashboard](pic/dashboard-normal.png)
+![Healthy Dashboard](pic/Normal%20screen%20.png)
 
 Example:
 
-- Online 🟢
-- No Alerts
-- Normal CPU / Memory / Disk Usage
+* Online 🟢
+* No Alerts
+* Normal CPU / Memory / Disk Usage
 
 ---
 
 ## Warning State
 
-![Warning Dashboard](pic/dashboard-warning.png)
+![Warning Dashboard](pic/High%20CPU.png)
 
 Example:
 
-- Warning 🟡
-- High CPU Alert
-- Live spike detection
+* Warning 🟡
+* High CPU Alert
+* Live spike detection
 
 ---
 
-## CloudWatch Metrics
+## CloudWatch CPU Metrics
 
-![CPU Metrics](pic/cpu-graph.png)
+![CPU Metrics](pic/CPUUtilization%20Graph.png)
 
 ---
 
 ## Memory and Disk Metrics
 
-![CWAgent Metrics](pic/cwagent-graph.png)
+![CWAgent Metrics](pic/CWagent%20graph.png)
+
+---
+
+# Additional AWS Screenshots
+
+## Lambda Dashboard
+
+![Lambda](pic/Lambda%20Dashboard.png)
+
+---
+
+## API Gateway Deployment
+
+![API Gateway](pic/API%20Gateway%20Deploy%20.png)
+
+---
+
+## IAM Permissions
+
+![IAM](pic/IAM%20permissions.png)
 
 ---
 
@@ -119,13 +140,13 @@ Example:
 
 # Technologies Used
 
-Frontend:
+## Frontend
 
 * HTML
 * CSS
 * JavaScript
 
-Backend / Cloud:
+## Backend / Cloud
 
 * AWS Lambda
 * API Gateway
@@ -136,29 +157,37 @@ Backend / Cloud:
 
 ---
 
+# AI-Assisted Development
+
+This project was developed using GitHub Copilot as an AI coding assistant.
+
+Copilot was used to accelerate frontend implementation and code refinement, while project architecture, AWS integration, monitoring setup, debugging, and validation were designed and implemented as part of the learning and development process.
+
+---
+
 # Testing and Validation
 
 The monitoring system was tested using controlled resource spikes.
 
-CPU Testing:
+## CPU Testing
 
 ```bash
 yes > /dev/null &
 ```
 
-Memory Testing:
+## Memory Testing
 
 ```bash
 python3 -c "a=' ' * 500000000; input()"
 ```
 
-Disk Testing:
+## Disk Testing
 
 ```bash
 fallocate -l 1G testfile.img
 ```
 
-Cleanup:
+## Cleanup
 
 ```bash
 pkill yes
@@ -195,10 +224,10 @@ This project helped build practical understanding of:
 
 # Author
 
-Joyal B Biju
+## Joyal B Biju
 
 GitHub:
-(Add GitHub Repository Link)
+https://github.com/JoyalBBiju/aws-monitoring-dashboard
 
 LinkedIn:
-(Add LinkedIn Profile Link) its not showing 
+(Add LinkedIn Profile Link)
