@@ -6,6 +6,34 @@ const serverStatusDetail = document.getElementById('status-detail');
 const alertsValue = document.getElementById('alert-value');
 const alertsDetail = document.getElementById('alert-detail');
 
+function animateValue(element, start, end, duration) {
+
+    let startTimestamp = null;
+
+    function step(timestamp) {
+
+        if (!startTimestamp)
+            startTimestamp = timestamp;
+
+        const progress = Math.min(
+            (timestamp - startTimestamp) / duration,
+            1
+        );
+
+        const value =
+            progress * (end - start) + start;
+
+        element.innerText =
+            `${value.toFixed(2)}%`;
+
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    }
+
+    window.requestAnimationFrame(step);
+}
+
 async function loadMetrics() {
 
     try {
@@ -18,9 +46,13 @@ async function loadMetrics() {
             throw new Error("API request failed");
         }
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
-        console.log("Metrics:", data);
+        console.log(
+            "Metrics:",
+            data
+        );
 
         const cpu =
             data.cpu_utilization?.average ?? 0;
@@ -31,16 +63,29 @@ async function loadMetrics() {
         const disk =
             data.disk_utilization?.average ?? 0;
 
-        cpuValue.innerText =
-            `${cpu}%`;
+        // Animated numbers
+        animateValue(
+            cpuValue,
+            parseFloat(cpuValue.innerText) || 0,
+            cpu,
+            1000
+        );
 
-        memoryValue.innerText =
-            `${memory}%`;
+        animateValue(
+            memoryValue,
+            parseFloat(memoryValue.innerText) || 0,
+            memory,
+            1000
+        );
 
-        diskValue.innerText =
-            `${disk}%`;
+        animateValue(
+            diskValue,
+            parseFloat(diskValue.innerText) || 0,
+            disk,
+            1000
+        );
 
-        // Status + Alerts Logic
+        // Status + Alerts
         if (cpu < 80) {
 
             serverStatusValue.innerText =
@@ -72,11 +117,19 @@ async function loadMetrics() {
 
     } catch (error) {
 
-        console.error("Fetch Error:", error);
+        console.error(
+            "Fetch Error:",
+            error
+        );
 
-        cpuValue.innerText = "Error";
-        memoryValue.innerText = "Error";
-        diskValue.innerText = "Error";
+        cpuValue.innerText =
+            "Error";
+
+        memoryValue.innerText =
+            "Error";
+
+        diskValue.innerText =
+            "Error";
 
         serverStatusValue.innerText =
             "Unavailable";
