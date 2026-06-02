@@ -1,0 +1,66 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloud Monitor Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="dashboard">
+
+        <header class="dashboard__header">
+            <div>
+                <p class="dashboard__eyebrow">Cloud Monitor</p>
+                <h1>Cloud Monitor Dashboard</h1>
+            </div>
+
+            <p class="dashboard__subtitle">
+                Overview of cloud infrastructure health and alerts.
+            </p>
+        </header>
+
+        <section class="dashboard__grid" aria-label="Monitoring overview">
+
+            <article class="card card--usage">
+                <h2>CPU Usage</h2>
+                <p id="cpu-value" class="card__value">Loading...</p>
+                <p class="card__detail">Average across active instances</p>
+            </article>
+
+            <article class="card card--usage">
+                <h2>Memory Usage</h2>
+                <p id="memory-value" class="card__value">Loading...</p>
+                <p class="card__detail">RAM utilization across services</p>
+            </article>
+
+            <article class="card card--usage">
+                <h2>Disk Usage</h2>
+                <p id="disk-value" class="card__value">Loading...</p>
+                <p class="card__detail">Storage used on critical volumes</p>
+            </article>
+
+            <article class="card card--status">
+                <h2>Server Status</h2>
+                <p id="status-value" class="card__value">Loading...</p>
+                <p id="status-detail" class="card__detail">
+                    Monitoring server health
+                </p>
+            </article>
+
+            <article class="card card--alerts">
+                <h2>Alerts</h2>
+                <p id="alert-value" class="card__value">Loading...</p>
+                <p id="alert-detail" class="card__detail">
+                    Monitoring alerts
+                </p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
