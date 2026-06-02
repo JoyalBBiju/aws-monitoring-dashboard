@@ -27,7 +27,7 @@ The project retrieves real metrics from AWS CloudWatch and displays them through
 
 ## Architecture Diagram
 
-![Architecture](pic/Architecture%20Diagram.png)
+![Architecture](Picture/Architecture%20Diagram.png)
 
 ---
 
@@ -57,16 +57,16 @@ Provides secure API access to the frontend dashboard.
 
 # Features
 
-✅ Real-time monitoring
-✅ Live CPU metrics
-✅ Live Memory metrics
-✅ Live Disk metrics
-✅ Auto-refresh every 10 seconds
-✅ Animated metric counters
-✅ Alert and warning system
-✅ Server health status
-✅ Indian timezone (IST) support
-✅ Responsive dark dashboard UI
+* ✅ Real-time monitoring
+* ✅ Live CPU metrics
+* ✅ Live Memory metrics
+* ✅ Live Disk metrics
+* ✅ Auto-refresh every 10 seconds
+* ✅ Animated metric counters
+* ✅ Alert and warning system
+* ✅ Server health status
+* ✅ Indian timezone (IST) support
+* ✅ Responsive dark dashboard UI
 
 ---
 
@@ -74,7 +74,7 @@ Provides secure API access to the frontend dashboard.
 
 ## Healthy State
 
-![Healthy Dashboard](pic/Normal%20screen%20.png)
+![Healthy Dashboard](Picture/Normal%20screen%20.png)
 
 Example:
 
@@ -86,7 +86,7 @@ Example:
 
 ## Warning State
 
-![Warning Dashboard](pic/High%20CPU.png)
+![Warning Dashboard](Picture/High%20CPU.png)
 
 Example:
 
@@ -98,13 +98,13 @@ Example:
 
 ## CloudWatch CPU Metrics
 
-![CPU Metrics](pic/CPUUtilization%20Graph.png)
+![CPU Metrics](Picture/CPUUtilization%20Graph.png)
 
 ---
 
 ## Memory and Disk Metrics
 
-![CWAgent Metrics](pic/CWagent%20graph.png)
+![CWAgent Metrics](Picture/CWagent%20graph.png)
 
 ---
 
@@ -112,19 +112,19 @@ Example:
 
 ## Lambda Dashboard
 
-![Lambda](pic/Lambda%20Dashboard.png)
+![Lambda Dashboard](Picture/Lambda%20Dashboard.png)
 
 ---
 
 ## API Gateway Deployment
 
-![API Gateway](pic/API%20Gateway%20Deploy%20.png)
+![API Gateway](Picture/API%20Gateway%20Deploy%20.png)
 
 ---
 
 ## IAM Permissions
 
-![IAM](pic/IAM%20permissions.png)
+![IAM](Picture/IAM%20permissions.png)
 
 ---
 
