@@ -5,6 +5,7 @@ const serverStatusValue = document.getElementById('status-value');
 const serverStatusDetail = document.getElementById('status-detail');
 const alertsValue = document.getElementById('alert-value');
 const alertsDetail = document.getElementById('alert-detail');
+const lastUpdated = document.getElementById('last-updated');
 
 function animateValue(element, start, end, duration) {
 
@@ -54,6 +55,25 @@ async function loadMetrics() {
             data
         );
 
+        // Last Updated - Correct IST Time
+        const timestamp =
+            new Date(
+                data.timestamp + 'Z'
+            );
+
+        lastUpdated.innerText =
+            `Last Updated: ${timestamp.toLocaleTimeString(
+                'en-IN',
+                {
+                    timeZone: 'Asia/Kolkata',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                }
+            )}`;
+
+        // Metrics
         const cpu =
             data.cpu_utilization?.average ?? 0;
 
@@ -63,7 +83,7 @@ async function loadMetrics() {
         const disk =
             data.disk_utilization?.average ?? 0;
 
-        // Animated numbers
+        // Animated Numbers
         animateValue(
             cpuValue,
             parseFloat(cpuValue.innerText) || 0,
@@ -85,7 +105,7 @@ async function loadMetrics() {
             1000
         );
 
-        // Status + Alerts
+        // Status + Alerts Logic
         if (cpu < 80) {
 
             serverStatusValue.innerText =
@@ -134,8 +154,17 @@ async function loadMetrics() {
         serverStatusValue.innerText =
             "Unavailable";
 
+        serverStatusDetail.innerText =
+            "Unable to fetch metrics.";
+
         alertsValue.innerText =
             "Connection Error";
+
+        alertsDetail.innerText =
+            "API or network issue detected.";
+
+        lastUpdated.innerText =
+            "Last Updated: Error";
     }
 }
 
