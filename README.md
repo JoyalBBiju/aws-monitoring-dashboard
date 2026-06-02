@@ -230,4 +230,4 @@ GitHub:
 https://github.com/JoyalBBiju/aws-monitoring-dashboard
 
 LinkedIn:
-(Add LinkedIn Profile Link)
+https://www.linkedin.com/feed/update/urn:li:activity:7467561110372519936/
